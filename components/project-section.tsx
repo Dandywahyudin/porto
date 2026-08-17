@@ -73,7 +73,7 @@ function ProjectCard({
   locked,
 }: ProjectCardProps) {
   return (
-    <div className="border-2 border-black dark:border-zinc-700 rounded-2xl bg-white dark:bg-[#141417] overflow-hidden shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,0.2)] dark:hover:shadow-[10px_10px_0px_0px_rgba(255,255,255,0.35)] transition-all group flex flex-col justify-between">
+    <div className="reveal-on-scroll border-2 border-black dark:border-zinc-700 rounded-2xl bg-white dark:bg-[#141417] overflow-hidden shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,0.2)] dark:hover:shadow-[10px_10px_0px_0px_rgba(255,255,255,0.35)] transition-all group flex flex-col justify-between">
       <div className="h-48 sm:h-56 bg-zinc-200 dark:bg-zinc-900 border-b-2 border-black dark:border-zinc-700 relative overflow-hidden flex items-center justify-center p-4">
         <span className="absolute top-3 right-3 bg-white/90 dark:bg-zinc-900/90 backdrop-blur border border-black dark:border-zinc-700 px-3 py-1 text-[11px] font-bold rounded-full text-black dark:text-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,0.2)] z-10">
           {year} • {category}

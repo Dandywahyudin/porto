@@ -107,28 +107,25 @@ export function ContactSection() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-            <InfoItem label="Email" href="mailto:hello@studio.dev" value="hello@studio.dev" />
-            <InfoItem label="Instagram" href="https://instagram.com" value="@studio.dev" />
-            <InfoItem label="LinkedIn" href="https://linkedin.com" value="in/studiodev" />
-            <InfoItem label="Location" value="Jakarta, Indonesia" />
+            <InfoItem label="Email" href="mailto:dandywahyudin19@gmail.com" value="dandywahyudin@gmail.com" />
+            <InfoItem label="Instagram" href="https://instagram.com/dandywahyudinn" value="@dandywahyudinn" />
+            <InfoItem label="LinkedIn" href="https://linkedin.com/in/dandywahyudin" value="in/dandywahyudin" />
+            <InfoItem label="Location" value="Kota Bandung, Indonesia" />
           </div>
         </div>
       </div>
 
       <footer className="border-t border-black dark:border-zinc-800 pt-6 mt-20 flex flex-col sm:flex-row justify-between items-center text-xs text-zinc-600 dark:text-zinc-400 font-medium gap-4 transition-colors">
-        <div>© 2024 DW. — Engineered with precision.</div>
+        <div>© 2026 DW. — by Dandy Wahyudin.</div>
         <div className="flex items-center gap-6 text-xs text-zinc-800 dark:text-zinc-300 font-bold">
-          <a href="#linkedin" className="hover:text-black dark:hover:text-white hover:underline">
+          <a href="https://linkedin.com/in/dandywahyudin" className="hover:text-black dark:hover:text-white hover:underline">
             LinkedIn
           </a>
-          <a href="#github" className="hover:text-black dark:hover:text-white hover:underline">
+          <a href="https://github.com/dandywahyudin" className="hover:text-black dark:hover:text-white hover:underline">
             GitHub
           </a>
           <a href="#readcv" className="hover:text-black dark:hover:text-white hover:underline">
             ReadCV
-          </a>
-          <a href="#twitter" className="hover:text-black dark:hover:text-white hover:underline">
-            Twitter
           </a>
         </div>
       </footer>

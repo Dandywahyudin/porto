@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Award, BadgeCheck, FileCheck, CheckCircle2 } from "lucide-react";
 
 export function AboutSection() {
@@ -11,7 +12,26 @@ export function AboutSection() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-        <div className="bg-white dark:bg-[#141417] border-2 border-black dark:border-zinc-700 p-6 sm:p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,0.2)] flex flex-col justify-between transition-all">
+        <div className="bg-white dark:bg-[#141417] border-2 border-black dark:border-zinc-700 p-6 sm:p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,0.2)] flex flex-col justify-between transition-all gap-6">
+          <div className="flex items-center gap-5 pb-5 border-b border-zinc-200 dark:border-zinc-800">
+            <div className="relative w-20 h-20 sm:w-24 sm:h-24 shrink-0 rounded-xl border-2 border-black dark:border-zinc-500 overflow-hidden bg-zinc-200 dark:bg-zinc-800 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.3)] group">
+              <Image
+                src="/gambar/aboutme.jpeg"
+                alt="Dandy Wahyudin"
+                fill
+                className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+              />
+            </div>
+            <div>
+              <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-black dark:text-white">
+                Dandy Wahyudin
+              </h3>
+              <p className="text-xs font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mt-0.5">
+                FullStack Web Developer
+              </p>
+            </div>
+          </div>
+
           <div className="space-y-4 text-zinc-800 dark:text-zinc-300 text-sm sm:text-[15px] leading-relaxed font-medium">
             <p>
               I am a multidisciplinary digital designer and structural engineer
@@ -124,7 +144,7 @@ function CertificateCard({
   icon,
 }: CertificateCardProps) {
   return (
-    <div className="bg-white dark:bg-[#141417] border border-black dark:border-zinc-700 p-6 relative flex flex-col justify-between min-h-72 hover:-translate-y-1 transition-all shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,0.2)] dark:hover:shadow-[5px_5px_0px_0px_rgba(255,255,255,0.4)] group">
+    <div className="reveal-on-scroll bg-white dark:bg-[#141417] border border-black dark:border-zinc-700 p-6 relative flex flex-col justify-between min-h-72 hover:-translate-y-1 transition-all shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] dark:shadow-[2px_2px_0px_0px_rgba(255,255,255,0.2)] dark:hover:shadow-[5px_5px_0px_0px_rgba(255,255,255,0.4)] group">
       <span className="text-4xl font-black text-zinc-300 dark:text-zinc-700 group-hover:text-black dark:group-hover:text-white transition-colors absolute top-5 right-5 select-none">
         {number}
       </span>
