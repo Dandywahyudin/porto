@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AboutSection } from "@/components/about-section";
+import { CertificateSection } from "@/components/certificate-section";
 import { ContactSection } from "@/components/contact-section";
 import { HeroSection } from "@/components/hero-section";
 import { Preloader } from "@/components/preloader";
@@ -85,6 +86,9 @@ export default function Home() {
           </div>
           <div className="reveal-on-scroll">
             <AboutSection />
+          </div>
+          <div className="reveal-on-scroll">
+            <CertificateSection />
           </div>
           <div className="reveal-on-scroll">
             <ProjectSection />
