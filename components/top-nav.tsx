@@ -60,9 +60,8 @@ export function TopNav() {
             className="relative w-12 h-6 bg-zinc-300/80 dark:bg-zinc-700/80 backdrop-blur-md rounded-full p-0.5 transition-colors duration-300 focus:outline-none flex items-center cursor-pointer"
           >
             <span
-              className={`w-5 h-5 rounded-full bg-black dark:bg-white shadow transform transition-transform duration-300 ${
-                isDark ? "translate-x-6" : "translate-x-0"
-              }`}
+              className={`w-5 h-5 rounded-full bg-black dark:bg-white shadow transform transition-transform duration-300 ${isDark ? "translate-x-6" : "translate-x-0"
+                }`}
             />
           </button>
         </div>

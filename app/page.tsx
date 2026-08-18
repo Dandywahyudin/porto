@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { AboutSection } from "@/components/about-section";
 import { ContactSection } from "@/components/contact-section";
 import { HeroSection } from "@/components/hero-section";
+import { Preloader } from "@/components/preloader";
 import { ProjectSection } from "@/components/project-section";
 import { SiteNav } from "@/components/site-nav";
 import { TopNav } from "@/components/top-nav";
@@ -73,6 +74,7 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen bg-[#f8f8fa] dark:bg-[#0e0e11] text-black dark:text-white transition-colors duration-300">
+      <Preloader />
       <SiteNav activeSection={activeSection} onNavigate={scrollTo} />
 
       <div className="flex-1 flex flex-col min-w-0">
