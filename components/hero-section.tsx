@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import { Download } from "lucide-react";
 
@@ -6,6 +9,8 @@ type HeroSectionProps = {
 };
 
 export function HeroSection({ onNavigate }: HeroSectionProps) {
+  const [isColored, setIsColored] = useState(false);
+
   return (
     <section
       id="home"
@@ -85,13 +90,21 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
             <div className="w-120 h-120 sm:w-145 sm:h-145 rounded-full border border-zinc-200/50 dark:border-zinc-800/60 absolute" />
           </div>
 
-          <div className="group relative z-10 w-67.5 h-92.5 sm:w-75 sm:h-105 rounded-t-full rounded-b-full border-2 border-black dark:border-zinc-300 bg-zinc-200 dark:bg-zinc-800 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,0.3)] overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.02]">
+          <div
+            onClick={() => setIsColored(!isColored)}
+            className="group relative z-10 w-67.5 h-92.5 sm:w-75 sm:h-105 rounded-t-full rounded-b-full border-2 border-black dark:border-zinc-300 bg-zinc-200 dark:bg-zinc-800 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,0.3)] overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+            title="Klik / Tap untuk mengubah warna"
+          >
             <Image
               src="/gambar/gambarhero.jpg"
               alt="Dandy Wahyudin"
               fill
               priority
-              className="object-cover grayscale contrast-110 group-hover:grayscale-0 group-hover:contrast-100 transition-all duration-500 ease-in-out"
+              className={`object-cover transition-all duration-500 ease-in-out ${
+                isColored
+                  ? "grayscale-0 contrast-100"
+                  : "grayscale contrast-110 group-hover:grayscale-0 group-hover:contrast-100"
+              }`}
             />
           </div>
         </div>

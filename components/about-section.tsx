@@ -1,7 +1,12 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import { Award, BadgeCheck, FileCheck, CheckCircle2 } from "lucide-react";
 
 export function AboutSection() {
+  const [isColored, setIsColored] = useState(false);
+
   return (
     <section id="about" className="py-20 border-b border-zinc-200/60 dark:border-zinc-800 transition-colors">
       <div className="mb-10">
@@ -14,12 +19,20 @@ export function AboutSection() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
         <div className="bg-white dark:bg-[#141417] border-2 border-black dark:border-zinc-700 p-6 sm:p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,0.2)] flex flex-col justify-between transition-all gap-6">
           <div className="flex items-center gap-5 pb-5 border-b border-zinc-200 dark:border-zinc-800">
-            <div className="relative w-20 h-20 sm:w-24 sm:h-24 shrink-0 rounded-xl border-2 border-black dark:border-zinc-500 overflow-hidden bg-zinc-200 dark:bg-zinc-800 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.3)] group">
+            <div
+              onClick={() => setIsColored(!isColored)}
+              className="relative w-20 h-20 sm:w-24 sm:h-24 shrink-0 rounded-xl border-2 border-black dark:border-zinc-500 overflow-hidden bg-zinc-200 dark:bg-zinc-800 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.3)] group cursor-pointer active:scale-95 transition-transform"
+              title="Klik / Tap untuk mengubah warna"
+            >
               <Image
                 src="/gambar/aboutme.jpeg"
                 alt="Dandy Wahyudin"
                 fill
-                className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                className={`object-cover transition-all duration-500 ${
+                  isColored
+                    ? "grayscale-0"
+                    : "grayscale group-hover:grayscale-0"
+                }`}
               />
             </div>
             <div>
