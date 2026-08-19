@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Download } from "lucide-react";
+import { Starfield } from "@/components/ui/starfield";
 
 type HeroSectionProps = {
   onNavigate: (id: string) => void;
@@ -14,9 +15,12 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
   return (
     <section
       id="home"
-      className="min-h-[85vh] flex flex-col justify-center pt-4 pb-20 border-b border-zinc-200/60 dark:border-zinc-800 transition-colors"
+      className="min-h-[85vh] flex flex-col justify-center pt-4 pb-20 border-b border-zinc-200/60 dark:border-zinc-800 transition-colors relative overflow-hidden"
     >
-      <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-12">
+      {/* Starfield Animated Background */}
+      <Starfield starCount={260} speed={0.35} className="opacity-80 dark:opacity-100" />
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-12 relative z-10">
         <div className="lg:col-span-7 space-y-6">
           <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-black uppercase tracking-tight text-black dark:text-white leading-[0.95] transition-colors">
             HI!, I&apos;M <br />
