@@ -1,4 +1,7 @@
+"use client";
+
 import { ArrowRight, Lock } from "lucide-react";
+import { Particles } from "@/components/ui/particles";
 
 type ProjectCardProps = {
   year: string;
@@ -12,8 +15,11 @@ type ProjectCardProps = {
 
 export function ProjectSection() {
   return (
-    <section id="project" className="py-20 border-b border-zinc-200/60 dark:border-zinc-800 transition-colors">
-      <div className="mb-10">
+    <section id="project" className="py-20 border-b border-zinc-200/60 dark:border-zinc-800 transition-colors relative">
+      {/* Particles Ambient Background */}
+      <Particles quantity={70} ease={60} size={0.6} className="opacity-70 dark:opacity-90" />
+
+      <div className="relative z-10 mb-10">
         <h2 className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-black dark:text-white mb-4">
           PROJECT
         </h2>
@@ -24,7 +30,7 @@ export function ProjectSection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
         <ProjectCard
           year="2023"
           category="E-commerce"

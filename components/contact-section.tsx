@@ -1,5 +1,8 @@
+"use client";
+
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
+import { Particles } from "@/components/ui/particles";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({ nama: "", email: "", pesan: "" });
@@ -17,15 +20,18 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20">
-      <div className="mb-10">
+    <section id="contact" className="py-20 relative">
+      {/* Particles Ambient Background */}
+      <Particles quantity={70} ease={60} size={0.6} className="opacity-70 dark:opacity-90" />
+
+      <div className="relative z-10 mb-10">
         <h2 className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-black dark:text-white">
           CONTACT
         </h2>
         <div className="w-full border-b border-black dark:border-zinc-700 mt-4" />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start relative z-10">
         <div className="lg:col-span-5 bg-white dark:bg-[#141417] border-2 border-black dark:border-zinc-700 rounded-2xl p-6 sm:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,0.2)] transition-all">
           {submitted ? (
             <div className="p-6 text-center bg-zinc-100 dark:bg-zinc-800 border-2 border-black dark:border-zinc-700 rounded-xl">

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import { Award, BadgeCheck, FileCheck, CheckCircle2, X, ExternalLink } from "lucide-react";
+import { Particles } from "@/components/ui/particles";
 
 export type CertificateItem = {
   number: string;
@@ -110,15 +111,18 @@ export function CertificateSection() {
   }, [selectedCert]);
 
   return (
-    <section id="certificates" className="py-20 border-b border-zinc-200/60 dark:border-zinc-800 transition-colors">
-      <div className="mb-10">
+    <section id="certificates" className="py-20 border-b border-zinc-200/60 dark:border-zinc-800 transition-colors relative">
+      {/* Particles Ambient Background */}
+      <Particles quantity={65} ease={60} size={0.6} className="opacity-70 dark:opacity-90" />
+
+      <div className="relative z-10 mb-10">
         <h2 className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-black dark:text-white">
           SERTIFIKAT
         </h2>
         <div className="w-full border-b border-black dark:border-zinc-700 mt-4" />
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
         {certificatesData.map((cert) => (
           <div
             key={cert.number}

@@ -15,10 +15,12 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
   return (
     <section
       id="home"
-      className="min-h-[85vh] flex flex-col justify-center pt-4 pb-20 border-b border-zinc-200/60 dark:border-zinc-800 transition-colors relative overflow-hidden"
+      className="min-h-[85vh] flex flex-col justify-center pt-4 pb-20 border-b border-zinc-200/60 dark:border-zinc-800 transition-colors relative"
     >
-      {/* Starfield Animated Background */}
-      <Starfield starCount={260} speed={0.35} className="opacity-80 dark:opacity-100" />
+      {/* Starfield Animated Background isolated so it does not clip hero content */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none rounded-3xl">
+        <Starfield starCount={320} speed={0.4} className="opacity-100" />
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-12 relative z-10">
         <div className="lg:col-span-7 space-y-6">
@@ -88,15 +90,16 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
           </div>
         </div>
 
-        <div className="lg:col-span-5 flex justify-center lg:justify-end relative py-8">
+        <div className="lg:col-span-5 flex justify-center lg:justify-end items-center relative py-6 sm:py-8 pr-2">
+          {/* Decorative concentric rings */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="w-90 h-90 sm:w-110 sm:h-110 rounded-full border border-zinc-300/70 dark:border-zinc-800 absolute" />
-            <div className="w-120 h-120 sm:w-145 sm:h-145 rounded-full border border-zinc-200/50 dark:border-zinc-800/60 absolute" />
+            <div className="w-72 h-72 sm:w-96 sm:h-96 rounded-full border border-zinc-300/70 dark:border-zinc-800 absolute" />
+            <div className="w-88 h-88 sm:w-112 sm:h-112 rounded-full border border-zinc-200/50 dark:border-zinc-800/60 absolute" />
           </div>
 
           <div
             onClick={() => setIsColored(!isColored)}
-            className="group relative z-10 w-67.5 h-92.5 sm:w-75 sm:h-105 rounded-t-full rounded-b-full border-2 border-black dark:border-zinc-300 bg-zinc-200 dark:bg-zinc-800 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,0.3)] overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+            className="group relative z-10 w-64 h-88 sm:w-72 sm:h-100 rounded-t-full rounded-b-full border-2 border-black dark:border-zinc-300 bg-zinc-200 dark:bg-zinc-800 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,0.3)] overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
             title="Klik / Tap untuk mengubah warna"
           >
             <Image

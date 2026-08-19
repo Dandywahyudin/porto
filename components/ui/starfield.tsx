@@ -9,8 +9,8 @@ interface StarfieldProps {
 }
 
 export function Starfield({
-  starCount = 320,
-  speed = 0.45,
+  starCount = 350,
+  speed = 0.5,
   className = "",
 }: StarfieldProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -23,10 +23,10 @@ export function Starfield({
     if (!ctx) return;
 
     let animationFrameId: number;
-    let dpr = window.devicePixelRatio || 1;
+    let dpr = typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1;
 
-    let cssWidth = canvas.parentElement?.clientWidth || window.innerWidth;
-    let cssHeight = canvas.parentElement?.clientHeight || window.innerHeight;
+    let cssWidth = canvas.clientWidth || canvas.parentElement?.clientWidth || window.innerWidth;
+    let cssHeight = canvas.clientHeight || canvas.parentElement?.clientHeight || window.innerHeight;
 
     const resize = () => {
       if (!canvas) return;
@@ -56,45 +56,68 @@ export function Starfield({
       twinkleOffset: number;
     }
 
-    const stars: Star[] = Array.from({ length: starCount }, () => ({
-      x: (Math.random() - 0.5) * cssWidth * 2.2,
-      y: (Math.random() - 0.5) * cssHeight * 2.2,
-      z: Math.random() * 1000,
-      size: Math.random() * 1.8 + 0.8,
-      twinkleSpeed: Math.random() * 0.04 + 0.015,
-      twinkleOffset: Math.random() * Math.PI * 2,
-    }));
+    const spawnStar = (resetZ = false): Star => {
+      const maxDim = Math.max(cssWidth, cssHeight);
+      return {
+        x: (Math.random() - 0.5) * maxDim * 1.6,
+        y: (Math.random() - 0.5) * maxDim * 1.6,
+        z: resetZ ? Math.random() * 1000 : 1000,
+        size: Math.random() * 2.0 + 0.8,
+        twinkleSpeed: Math.random() * 0.05 + 0.02,
+        twinkleOffset: Math.random() * Math.PI * 2,
+      };
+    };
+
+    const stars: Star[] = Array.from({ length: starCount }, () => spawnStar(true));
 
     const handleMouseMove = (e: MouseEvent) => {
       const rect = canvas.getBoundingClientRect();
-      targetMouseX = (e.clientX - rect.left - cssWidth / 2) * 0.08;
-      targetMouseY = (e.clientY - rect.top - cssHeight / 2) * 0.08;
+      targetMouseX = (e.clientX - rect.left - cssWidth / 2) * 0.06;
+      targetMouseY = (e.clientY - rect.top - cssHeight / 2) * 0.06;
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        const rect = canvas.getBoundingClientRect();
+        targetMouseX = (e.touches[0].clientX - rect.left - cssWidth / 2) * 0.06;
+        targetMouseY = (e.touches[0].clientY - rect.top - cssHeight / 2) * 0.06;
+      }
     };
 
     window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    window.addEventListener("touchmove", handleTouchMove, { passive: true });
 
     const resizeObserver = new ResizeObserver(() => resize());
     if (canvas.parentElement) {
       resizeObserver.observe(canvas.parentElement);
     }
-    window.addEventListener("resize", resize);
+    window.addEventListener("resize", handleResize);
+
+    function handleResize() {
+      resize();
+    }
 
     let time = 0;
 
     const render = () => {
-      time += 0.04;
-      mouseX += (targetMouseX - mouseX) * 0.05;
-      mouseY += (targetMouseY - mouseY) * 0.05;
+      time += 0.03;
+
+      // Organic gentle floating drift for mobile when there is no mouse movement
+      const autoDriftX = Math.sin(time * 0.4) * 15;
+      const autoDriftY = Math.cos(time * 0.3) * 12;
+
+      mouseX += (targetMouseX + autoDriftX - mouseX) * 0.05;
+      mouseY += (targetMouseY + autoDriftY - mouseY) * 0.05;
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       const isDark = document.documentElement.classList.contains("dark");
 
-      // In Dark Mode: Crisp white stars (255, 255, 255)
-      // In Light Mode: High-contrast rich charcoal/black stars (15, 15, 25)
-      const baseR = isDark ? 255 : 15;
-      const baseG = isDark ? 255 : 15;
-      const baseB = isDark ? 255 : 25;
+      // Dark Mode: White bright stars (255, 255, 255)
+      // Light Mode: High-contrast Dark Slate (18, 18, 28)
+      const baseR = isDark ? 255 : 18;
+      const baseG = isDark ? 255 : 18;
+      const baseB = isDark ? 255 : 28;
 
       const cx = (cssWidth / 2 + mouseX) * dpr;
       const cy = (cssHeight / 2 + mouseY) * dpr;
@@ -102,30 +125,30 @@ export function Starfield({
       for (let i = 0; i < stars.length; i++) {
         const star = stars[i];
 
-        star.z -= speed * 2.6;
+        star.z -= speed * 2.8;
 
         if (star.z <= 0) {
+          const newStar = spawnStar(false);
+          star.x = newStar.x;
+          star.y = newStar.y;
           star.z = 1000;
-          star.x = (Math.random() - 0.5) * cssWidth * 2.2;
-          star.y = (Math.random() - 0.5) * cssHeight * 2.2;
         }
 
-        const k = 260 / star.z;
+        const k = 280 / star.z;
         const px = star.x * k * dpr + cx;
         const py = star.y * k * dpr + cy;
 
         if (px >= 0 && px <= canvas.width && py >= 0 && py <= canvas.height) {
-          const depthAlpha = Math.min(1, Math.max(0.2, (1000 - star.z) / 1000));
-          const twinkle = 0.4 + 0.6 * Math.sin(time * star.twinkleSpeed * 15 + star.twinkleOffset);
+          const depthAlpha = Math.min(1, Math.max(0.25, (1000 - star.z) / 1000));
+          const twinkle = 0.45 + 0.55 * Math.sin(time * star.twinkleSpeed * 20 + star.twinkleOffset);
           
-          // Higher opacity in light mode for crystal-clear visibility
-          const opacityMultiplier = isDark ? 0.9 : 0.85;
-          const alpha = depthAlpha * twinkle * opacityMultiplier;
+          const opacityMult = isDark ? 0.95 : 0.88;
+          const alpha = depthAlpha * twinkle * opacityMult;
           
-          const radius = Math.max(1.1 * dpr, star.size * k * 0.9 * dpr);
+          const radius = Math.max(1.2 * dpr, star.size * k * 0.85 * dpr);
 
           ctx.beginPath();
-          ctx.arc(px, py, Math.min(radius, 3.2 * dpr), 0, Math.PI * 2);
+          ctx.arc(px, py, Math.min(radius, 3.5 * dpr), 0, Math.PI * 2);
           ctx.fillStyle = `rgba(${baseR}, ${baseG}, ${baseB}, ${alpha})`;
           ctx.fill();
         }
@@ -139,6 +162,7 @@ export function Starfield({
     return () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("touchmove", handleTouchMove);
       window.removeEventListener("resize", handleResize);
       resizeObserver.disconnect();
     };
@@ -147,7 +171,7 @@ export function Starfield({
   return (
     <canvas
       ref={canvasRef}
-      className={`pointer-events-none absolute inset-0 z-0 ${className}`}
+      className={`pointer-events-none absolute inset-0 w-full h-full z-0 ${className}`}
       aria-hidden="true"
     />
   );

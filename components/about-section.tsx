@@ -2,20 +2,24 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { Particles } from "@/components/ui/particles";
 
 export function AboutSection() {
   const [isColored, setIsColored] = useState(false);
 
   return (
-    <section id="about" className="py-20 border-b border-zinc-200/60 dark:border-zinc-800 transition-colors">
-      <div className="mb-10">
+    <section id="about" className="py-20 border-b border-zinc-200/60 dark:border-zinc-800 transition-colors relative">
+      {/* Particles Ambient Background */}
+      <Particles quantity={65} ease={60} size={0.6} className="opacity-70 dark:opacity-90" />
+
+      <div className="relative z-10 mb-10">
         <h2 className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-black dark:text-white">
           ABOUT
         </h2>
         <div className="w-full border-b border-black dark:border-zinc-700 mt-4" />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
         <div className="bg-white dark:bg-[#141417] border-2 border-black dark:border-zinc-700 p-6 sm:p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,0.2)] flex flex-col justify-between transition-all gap-6">
           <div className="flex items-center gap-5 pb-5 border-b border-zinc-200 dark:border-zinc-800">
             <div
