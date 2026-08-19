@@ -72,38 +72,6 @@ A modern, high-contrast, neo-brutalist personal portfolio website engineered wit
 
 ---
 
-## 📂 Project Structure
-
-```text
-porto/
-├── app/
-│   ├── favicon.ico
-│   ├── globals.css         # Tailwind CSS v4 & theme variables
-│   ├── layout.tsx          # Root layout with Geist font & metadata
-│   └── page.tsx            # Main page with section observers & parallax
-├── components/
-│   ├── ui/
-│   │   ├── blur-text.tsx             # Sequential word-by-word BlurText
-│   │   ├── particles.tsx             # Canvas ambient particles
-│   │   ├── starfield.tsx             # 3D interactive starfield canvas
-│   │   └── text-generate-effect.tsx  # Staggered blur-to-clear text effect
-│   ├── about-section.tsx             # Bio & technical core skills
-│   ├── certificate-section.tsx       # Certificate cards & portal modal
-│   ├── contact-section.tsx           # Contact form & social channels
-│   ├── hero-section.tsx              # Hero headline, bio, photo & CTA
-│   ├── preloader.tsx                 # Cinematic doors intro preloader
-│   ├── project-section.tsx           # Featured project showcase
-│   ├── site-nav.tsx                  # Collapsible desktop sidebar & mobile nav
-│   └── top-nav.tsx                   # Top bar with status & theme toggle
-├── lib/
-│   └── utils.ts                      # Class merging utility helper
-├── public/
-│   ├── certificates/                 # Certificate webp assets
-│   └── gambar/                       # Profile & hero image assets
-├── package.json
-└── README.md
-```
-
 ---
 
 ## 🚀 Getting Started
