@@ -117,7 +117,7 @@ export function CertificateSection() {
 
       <div className="relative z-10 mb-10">
         <h2 className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-black dark:text-white">
-          SERTIFIKAT
+          CERTIFICATE
         </h2>
         <div className="w-full border-b border-black dark:border-zinc-700 mt-4" />
       </div>

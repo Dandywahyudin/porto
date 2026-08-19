@@ -52,11 +52,10 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
 
           {/* Subtitle */}
           <p
-            className={`text-lg sm:text-xl font-bold uppercase tracking-wider text-zinc-700 dark:text-zinc-300 transition-all duration-800 ease-out delay-150 ${
-              isReady
+            className={`text-lg sm:text-xl font-bold uppercase tracking-wider text-zinc-700 dark:text-zinc-300 transition-all duration-800 ease-out delay-150 ${isReady
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-8"
-            }`}
+              }`}
           >
             WEB DEVELOPER
           </p>
@@ -75,11 +74,10 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
 
           {/* CTA Buttons */}
           <div
-            className={`flex flex-wrap gap-4 pt-2 transition-all duration-800 ease-out delay-450 ${
-              isReady
+            className={`flex flex-wrap gap-4 pt-2 transition-all duration-800 ease-out delay-450 ${isReady
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-8"
-            }`}
+              }`}
           >
             <a
               href="#contact"
@@ -102,13 +100,12 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
 
           {/* Experience Statistics */}
           <div
-            className={`pt-10 mt-6 border-t border-zinc-200 dark:border-zinc-800 max-w-xl transition-all duration-800 ease-out delay-600 ${
-              isReady
+            className={`pt-10 mt-6 border-t border-zinc-200 dark:border-zinc-800 max-w-xl transition-all duration-800 ease-out delay-600 ${isReady
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-8"
-            }`}
+              }`}
           >
-            <div className="grid grid-cols-3 gap-6">
+            {/* <div className="grid grid-cols-3 gap-6">
               <div>
                 <span className="text-3xl sm:text-4xl font-extrabold text-black dark:text-white tracking-tight">
                   3+
@@ -133,7 +130,7 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
                   HAPPY CLIENTS
                 </span>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -141,11 +138,10 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
         <div className="lg:col-span-5 flex justify-center lg:justify-end items-center relative py-6 sm:py-8 pr-2">
           {/* Decorative concentric rings */}
           <div
-            className={`absolute inset-0 flex items-center justify-center pointer-events-none transition-all duration-1000 ease-out delay-400 ${
-              isReady
+            className={`absolute inset-0 flex items-center justify-center pointer-events-none transition-all duration-1000 ease-out delay-400 ${isReady
                 ? "opacity-100 scale-100"
                 : "opacity-0 scale-75"
-            }`}
+              }`}
           >
             <div className="w-72 h-72 sm:w-96 sm:h-96 rounded-full border border-zinc-300/70 dark:border-zinc-800 absolute" />
             <div className="w-88 h-88 sm:w-112 sm:h-112 rounded-full border border-zinc-200/50 dark:border-zinc-800/60 absolute" />
@@ -153,11 +149,10 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
 
           <div
             onClick={() => setIsColored(!isColored)}
-            className={`group relative z-10 w-64 h-88 sm:w-72 sm:h-100 rounded-t-full rounded-b-full border-2 border-black dark:border-zinc-300 bg-zinc-200 dark:bg-zinc-800 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,0.3)] overflow-hidden cursor-pointer transition-all duration-900 ease-[cubic-bezier(0.16,1,0.3,1)] delay-200 hover:scale-[1.02] active:scale-[0.98] ${
-              isReady
+            className={`group relative z-10 w-64 h-88 sm:w-72 sm:h-100 rounded-t-full rounded-b-full border-2 border-black dark:border-zinc-300 bg-zinc-200 dark:bg-zinc-800 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,0.3)] overflow-hidden cursor-pointer transition-all duration-900 ease-[cubic-bezier(0.16,1,0.3,1)] delay-200 hover:scale-[1.02] active:scale-[0.98] ${isReady
                 ? "opacity-100 scale-100 translate-y-0"
                 : "opacity-0 scale-90 translate-y-12"
-            }`}
+              }`}
             title="Klik / Tap untuk mengubah warna"
           >
             <Image
@@ -165,11 +160,10 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
               alt="Dandy Wahyudin"
               fill
               priority
-              className={`object-cover transition-all duration-500 ease-in-out ${
-                isColored
+              className={`object-cover transition-all duration-500 ease-in-out ${isColored
                   ? "grayscale-0 contrast-100"
                   : "grayscale contrast-110 group-hover:grayscale-0 group-hover:contrast-100"
-              }`}
+                }`}
             />
           </div>
         </div>
