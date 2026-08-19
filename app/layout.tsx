@@ -14,8 +14,57 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "DANDY WAHYUDIN — Web Developer",
-  description: "Portfolio of Dandy Wahyudin, Web Developer & Structural Digital Designer.",
+  title: "DW. — Dandy Wahyudin | Web Developer",
+  description:
+    "Portfolio of Dandy Wahyudin, FullStack Web Developer & Structural Digital Designer. Engineering digital experiences with precision, clean code, and neo-brutalist aesthetics.",
+  keywords: [
+    "Dandy Wahyudin",
+    "DW.",
+    "Web Developer",
+    "FullStack Developer",
+    "Frontend Developer",
+    "Next.js",
+    "React",
+    "Tailwind CSS",
+    "Portfolio",
+    "Bandung",
+    "Indonesia",
+  ],
+  authors: [{ name: "Dandy Wahyudin", url: "https://github.com/Dandywahyudin" }],
+  creator: "Dandy Wahyudin",
+  publisher: "Dandy Wahyudin",
+  openGraph: {
+    type: "website",
+    locale: "id_ID",
+    url: "https://dandywahyudin.dev",
+    title: "DW. — Dandy Wahyudin | Web Developer",
+    description:
+      "Personal portfolio of Dandy Wahyudin, FullStack Web Developer. Specializing in high-performance React & Next.js applications.",
+    siteName: "Dandy Wahyudin Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DW. — Dandy Wahyudin | Web Developer",
+    description:
+      "Portfolio of Dandy Wahyudin, FullStack Web Developer & Structural Digital Designer.",
+    creator: "@dandywahyudinn",
+  },
+  icons: {
+    icon: [
+      {
+        url: "/icon",
+        type: "image/png",
+        sizes: "48x48",
+      },
+    ],
+    apple: [
+      {
+        url: "/apple-icon",
+        type: "image/png",
+        sizes: "180x180",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
