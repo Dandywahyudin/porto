@@ -14,11 +14,24 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      const sections = ["home", "about", "project", "contact"];
       const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
       const docHeight = document.documentElement.scrollHeight;
+
+      // Update Parallax CSS variables for mobile & desktop
+      document.documentElement.style.setProperty(
+        "--parallax-slow",
+        `${scrollPosition * -0.05}px`
+      );
+      document.documentElement.style.setProperty(
+        "--parallax-fast",
+        `${scrollPosition * 0.06}px`
+      );
+
+      const sections = ["home", "about", "certificates", "project", "contact"];
 
       // If reached near bottom of page, activate contact
       if (scrollPosition + windowHeight >= docHeight - 80) {
@@ -33,18 +46,28 @@ export default function Home() {
         if (element) {
           const rect = element.getBoundingClientRect();
           if (rect.top <= windowHeight * 0.45) {
-            setActiveSection(section);
+            setActiveSection(section === "certificates" ? "about" : section);
             break;
           }
         }
       }
     };
 
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
 
-    // Scroll reveal observer
-    const observerCallback: IntersectionObserverCallback = (entries, observer) => {
+    handleScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    // Scroll reveal observer - mobile friendly
+    const observerCallback: IntersectionObserverCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("is-revealed");
@@ -53,16 +76,27 @@ export default function Home() {
     };
 
     const observer = new IntersectionObserver(observerCallback, {
-      threshold: 0.08,
-      rootMargin: "0px 0px -40px 0px",
+      threshold: 0.02,
+      rootMargin: "0px 0px -15px 0px",
     });
 
-    const elements = document.querySelectorAll(".reveal-on-scroll");
-    elements.forEach((el) => observer.observe(el));
+    const observeElements = () => {
+      const elements = document.querySelectorAll(".reveal-on-scroll");
+      elements.forEach((el) => observer.observe(el));
+    };
+
+    observeElements();
+
+    // Re-observe after preloader curtains open to guarantee mobile triggers
+    const introTimer = setTimeout(() => {
+      observeElements();
+      handleScroll();
+    }, 2400);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", onScroll);
       observer.disconnect();
+      clearTimeout(introTimer);
     };
   }, []);
 

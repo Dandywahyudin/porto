@@ -37,17 +37,29 @@ body {
   background: #18181b;
 }
 
-/* Scroll Reveal Animations */
+/* Scroll Reveal & Parallax Animations */
 .reveal-on-scroll {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(36px) scale(0.98);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
 .reveal-on-scroll.is-revealed {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
+}
+
+.parallax-slow {
+  will-change: transform;
+  transform: translateY(var(--parallax-slow, 0px));
+  transition: transform 0.1s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.parallax-fast {
+  will-change: transform;
+  transform: translateY(var(--parallax-fast, 0px));
+  transition: transform 0.1s cubic-bezier(0, 0, 0.2, 1);
 }
 
 ::-webkit-scrollbar-thumb {
