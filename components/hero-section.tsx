@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Download } from "lucide-react";
 import { Starfield } from "@/components/ui/starfield";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
+import { BlurText } from "@/components/ui/blur-text";
 
 type HeroSectionProps = {
   onNavigate: (id: string) => void;
@@ -11,6 +13,16 @@ type HeroSectionProps = {
 
 export function HeroSection({ onNavigate }: HeroSectionProps) {
   const [isColored, setIsColored] = useState(false);
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    // Synchronize entrance animation with the Preloader curtain opening
+    const timer = setTimeout(() => {
+      setIsReady(true);
+    }, 1950);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <section
@@ -24,23 +36,51 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-12 relative z-10">
         <div className="lg:col-span-7 space-y-6">
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-black uppercase tracking-tight text-black dark:text-white leading-[0.95] transition-colors">
-            HI!, I&apos;M <br />
-            DANDY <br />
-            WAHYUDIN.
+          {/* Main Headline with Sequential Word-by-Word BlurText Effect */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[66px] font-black uppercase tracking-tight text-black dark:text-white leading-[0.98]">
+            <BlurText
+              items={["HI!,", "I'M", "\n", "DANDY", "\n", "WAHYUDIN."]}
+              wordDelay={320}
+              duration={650}
+              direction="top"
+              loop={true}
+              loopInterval={5600}
+              trigger={isReady}
+              initialDelay={200}
+            />
           </h1>
 
-          <p className="text-lg sm:text-xl font-bold uppercase tracking-wider text-zinc-700 dark:text-zinc-300">
+          {/* Subtitle */}
+          <p
+            className={`text-lg sm:text-xl font-bold uppercase tracking-wider text-zinc-700 dark:text-zinc-300 transition-all duration-800 ease-out delay-150 ${
+              isReady
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
+            }`}
+          >
             WEB DEVELOPER
           </p>
 
-          <p className="text-zinc-600 dark:text-zinc-400 text-sm sm:text-base leading-relaxed max-w-lg font-medium">
-            Engineering structural digital experiences with precision and
-            high-contrast impact. Focusing on clean code, minimalist design,
-            and scalable architectures.
-          </p>
+          {/* Bio Description with Text Generate Effect */}
+          <div className="max-w-lg">
+            <TextGenerateEffect
+              words="Engineering structural digital experiences with precision and high-contrast impact. Focusing on clean code, minimalist design, and scalable architectures."
+              className="text-zinc-600 dark:text-zinc-400 text-sm sm:text-base leading-relaxed font-medium"
+              trigger={isReady}
+              delay={350}
+              staggerDelay={0.045}
+              duration={0.45}
+            />
+          </div>
 
-          <div className="flex flex-wrap gap-4 pt-2">
+          {/* CTA Buttons */}
+          <div
+            className={`flex flex-wrap gap-4 pt-2 transition-all duration-800 ease-out delay-450 ${
+              isReady
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
+            }`}
+          >
             <a
               href="#contact"
               onClick={(e) => {
@@ -60,7 +100,14 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
             </button>
           </div>
 
-          <div className="pt-10 mt-6 border-t border-zinc-200 dark:border-zinc-800 max-w-xl">
+          {/* Experience Statistics */}
+          <div
+            className={`pt-10 mt-6 border-t border-zinc-200 dark:border-zinc-800 max-w-xl transition-all duration-800 ease-out delay-600 ${
+              isReady
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
+            }`}
+          >
             <div className="grid grid-cols-3 gap-6">
               <div>
                 <span className="text-3xl sm:text-4xl font-extrabold text-black dark:text-white tracking-tight">
@@ -90,16 +137,27 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
           </div>
         </div>
 
+        {/* Profile Card Column */}
         <div className="lg:col-span-5 flex justify-center lg:justify-end items-center relative py-6 sm:py-8 pr-2">
           {/* Decorative concentric rings */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div
+            className={`absolute inset-0 flex items-center justify-center pointer-events-none transition-all duration-1000 ease-out delay-400 ${
+              isReady
+                ? "opacity-100 scale-100"
+                : "opacity-0 scale-75"
+            }`}
+          >
             <div className="w-72 h-72 sm:w-96 sm:h-96 rounded-full border border-zinc-300/70 dark:border-zinc-800 absolute" />
             <div className="w-88 h-88 sm:w-112 sm:h-112 rounded-full border border-zinc-200/50 dark:border-zinc-800/60 absolute" />
           </div>
 
           <div
             onClick={() => setIsColored(!isColored)}
-            className="group relative z-10 w-64 h-88 sm:w-72 sm:h-100 rounded-t-full rounded-b-full border-2 border-black dark:border-zinc-300 bg-zinc-200 dark:bg-zinc-800 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,0.3)] overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+            className={`group relative z-10 w-64 h-88 sm:w-72 sm:h-100 rounded-t-full rounded-b-full border-2 border-black dark:border-zinc-300 bg-zinc-200 dark:bg-zinc-800 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_0px_rgba(255,255,255,0.3)] overflow-hidden cursor-pointer transition-all duration-900 ease-[cubic-bezier(0.16,1,0.3,1)] delay-200 hover:scale-[1.02] active:scale-[0.98] ${
+              isReady
+                ? "opacity-100 scale-100 translate-y-0"
+                : "opacity-0 scale-90 translate-y-12"
+            }`}
             title="Klik / Tap untuk mengubah warna"
           >
             <Image

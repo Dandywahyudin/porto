@@ -115,9 +115,7 @@ export default function Home() {
       <div className="flex-1 flex flex-col min-w-0">
         <TopNav />
         <main className="flex-1 max-w-5xl w-full mx-auto px-6 sm:px-10 lg:px-16 py-6 md:py-8 pb-28 md:pb-20 overflow-x-hidden space-y-4">
-          <div className="reveal-on-scroll">
-            <HeroSection onNavigate={scrollTo} />
-          </div>
+          <HeroSection onNavigate={scrollTo} />
           <div className="reveal-on-scroll">
             <AboutSection />
           </div>
