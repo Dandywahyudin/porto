@@ -125,10 +125,10 @@ export function AboutSection() {
             <div
               onClick={() => setIsColored(!isColored)}
               className="relative w-20 h-20 sm:w-24 sm:h-24 shrink-0 rounded-xl border-2 border-black dark:border-zinc-500 overflow-hidden bg-zinc-200 dark:bg-zinc-800 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.3)] group cursor-pointer active:scale-95 transition-transform"
-              title="Klik / Tap untuk mengubah warna"
+              title="Klik"
             >
               <Image
-                src="/gambar/aboutme.jpeg"
+                src="/image/aboutme.webp"
                 alt="Dandy Wahyudin"
                 fill
                 className={`object-cover transition-all duration-500 ${isColored
