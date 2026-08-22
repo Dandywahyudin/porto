@@ -20,6 +20,22 @@ export type CertificateItem = {
 const certificatesData: CertificateItem[] = [
   {
     number: "01",
+    title: "Pengembangan Web dengan NodeJs dan ReactJs",
+    issuer: "BNSP",
+    year: "2025",
+    skills: [
+      "Software Development Life Cycle",
+      "Basic Programing",
+      "Fundamental NodeJs & ReactJs",
+      "Git & Github",
+    ],
+    image: "/certificates/BNSP.webp",
+    icon: <CheckCircle2 className="w-4 h-4 text-black dark:text-white" />,
+    description:
+      "Sertifikasi BNSP ini saya peroleh setelah menyelesaikan pelatihan dan asesmen kompetensi sebagai Pengembang Web dengan Node.js dan React.js. Sertifikasi ini memvalidasi kemampuan saya dalam merancang, mengembangkan, mengimplementasikan, serta memelihara sistem aplikasi berbasis web menggunakan teknologi modern.",
+  },
+  {
+    number: "02",
     title: "VOCATIONAL SCHOOL GRADUATE ACADEMY (VSGA)",
     issuer: "Digitalent Kominfo",
     year: "2023",
@@ -36,7 +52,7 @@ const certificatesData: CertificateItem[] = [
       "Program pelatihan dan sertifikasi kompetensi berbasis Standar Kompetensi Kerja Nasional Indonesia (SKKNI) oleh Kementerian Komunikasi dan Informatika (Kominfo) dalam bidang Junior Web Developer.",
   },
   {
-    number: "02",
+    number: "03",
     title: "GOOGLE IT SUPPORT PROFESSIONAL",
     issuer: "Google / Coursera",
     year: "2023",
@@ -53,7 +69,7 @@ const certificatesData: CertificateItem[] = [
       "Sertifikasi tingkat profesional dari Google yang mencakup fondasi dukungan teknis komputer, konfigurasi jaringan TCP/IP, administrasi sistem operasi (Linux/Windows), dan proteksi keamanan siber.",
   },
   {
-    number: "03",
+    number: "04",
     title: "PELATIHAN VOKASI KEMNAKER PENGEMBANGAN WEB REACT.JS DAN NODE.JS",
     issuer: "KEMNAKER RI",
     year: "2025",
@@ -69,7 +85,7 @@ const certificatesData: CertificateItem[] = [
       "Pelatihan kejuruan terapan bersertifikat dari Kementerian Ketenagakerjaan Republik Indonesia (Kemnaker) yang memvalidasi keterampilan teknis praktis sesuai dengan standar kebutuhan dunia kerja industri.",
   },
   {
-    number: "04",
+    number: "05",
     title: "BOOTCAMP PELATIHAN VOKASI KILAT ALKADEMI",
     issuer: "Alkademi",
     year: "2022",
@@ -84,6 +100,7 @@ const certificatesData: CertificateItem[] = [
     description:
       "Bootcamp yang dilaksanakan secara offline di kota bandung dengan kompetensi tingkat terapan yang memvalidasi keterampilan teknis praktis sesuai dengan standar kebutuhan dunia kerja industri.",
   },
+
 ];
 
 export function CertificateSection() {
@@ -110,6 +127,9 @@ export function CertificateSection() {
     }
   }, [selectedCert]);
 
+  const featuredCert = certificatesData[0];
+  const otherCerts = certificatesData.slice(1);
+
   return (
     <section id="certificates" className="py-20 border-b border-zinc-200/60 dark:border-zinc-800 transition-colors relative">
       {/* Particles Ambient Background */}
@@ -122,8 +142,81 @@ export function CertificateSection() {
         <div className="w-full border-b border-black dark:border-zinc-700 mt-4" />
       </div>
 
+      {/* 1. Featured Spotlight Certificate Banner */}
+      {featuredCert && (
+        <div
+          onClick={() => setSelectedCert(featuredCert)}
+          className="w-full bg-white dark:bg-[#141417] border-2 border-black dark:border-zinc-700 rounded-2xl p-5 sm:p-7 relative mb-8 hover:-translate-y-1.5 transition-all duration-300 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,0.2)] dark:hover:shadow-[10px_10px_0px_0px_rgba(255,255,255,0.35)] group overflow-hidden cursor-pointer relative z-10"
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+            {/* Image Frame */}
+            <div className="lg:col-span-5 relative w-full h-52 sm:h-64 rounded-xl overflow-hidden border border-black/20 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-800/80">
+              <Image
+                src={featuredCert.image}
+                alt={featuredCert.title}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 opacity-30 group-hover:opacity-50 transition-opacity" />
+
+              <span className="absolute top-3 right-3 bg-black/90 dark:bg-white/90 text-white dark:text-black text-xs font-black px-3 py-1 rounded-full backdrop-blur-sm shadow-xs">
+                {featuredCert.number}
+              </span>
+
+              <div className="absolute bottom-3 left-3 right-3 flex items-center justify-center gap-2 py-2.5 rounded-lg bg-black text-white dark:bg-white dark:text-black text-xs font-extrabold tracking-wider uppercase opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 shadow-md">
+                <span>Lihat Detail Sertifikat</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </div>
+            </div>
+
+            {/* Info Details */}
+            <div className="lg:col-span-7 flex flex-col justify-between h-full space-y-4">
+              <div>
+                <div className="flex flex-wrap items-center gap-2.5 mb-3">
+
+                  <span className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 px-3 py-1 border border-zinc-300 dark:border-zinc-700 rounded-md">
+                    {featuredCert.icon}
+                    {featuredCert.issuer}
+                  </span>
+                  <span className="text-xs font-bold text-zinc-500 dark:text-zinc-400">
+                    {featuredCert.year}
+                  </span>
+                </div>
+
+                <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-black dark:text-white group-hover:underline leading-snug">
+                  {featuredCert.title}
+                </h3>
+
+                <p className="text-xs sm:text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 font-medium mt-3">
+                  {featuredCert.description}
+                </p>
+              </div>
+
+              {/* Skills Pills */}
+              <div className="pt-3 border-t border-zinc-200 dark:border-zinc-800">
+                <div className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-400 mb-2">
+                  Core Competencies:
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {featuredCert.skills.map((skill, idx) => (
+                    <span
+                      key={idx}
+                      className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider bg-zinc-100 dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-700 px-2.5 py-1 rounded-full text-zinc-800 dark:text-zinc-200 shadow-2xs"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* 2. Remaining 4 Certificates in Balanced 4-Column Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
-        {certificatesData.map((cert) => (
+        {otherCerts.map((cert) => (
           <div
             key={cert.number}
             onClick={() => setSelectedCert(cert)}

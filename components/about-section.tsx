@@ -4,17 +4,40 @@ import { Particles } from "@/components/ui/particles";
 import {
   ReactIcon,
   NextjsIcon,
+  LaravelIcon,
+  PHPIcon,
+  GoIcon,
   TypeScriptIcon,
   JavaScriptIcon,
   TailwindIcon,
   NodejsIcon,
   PostgresIcon,
-  FigmaIcon,
   GitIcon,
   HTMLIcon,
 } from "@/components/icons/tech-icons";
 
 const techStack = [
+  {
+    name: "Laravel",
+    category: "Framework",
+    desc: "Robust Web Architecture",
+    icon: LaravelIcon,
+    accent: "group-hover:border-[#FF2D20]",
+  },
+  {
+    name: "PHP",
+    category: "Language",
+    desc: "Server-Side Scripting",
+    icon: PHPIcon,
+    accent: "group-hover:border-[#777BB4]",
+  },
+  {
+    name: "Go",
+    category: "Language",
+    desc: "High-Performance Backend",
+    icon: GoIcon,
+    accent: "group-hover:border-[#00ADD8]",
+  },
   {
     name: "React",
     category: "Frontend",
@@ -65,13 +88,6 @@ const techStack = [
     accent: "group-hover:border-[#4169E1]",
   },
   {
-    name: "Figma",
-    category: "UI/UX",
-    desc: "Wireframing & Prototyping",
-    icon: FigmaIcon,
-    accent: "group-hover:border-[#A259FF]",
-  },
-  {
     name: "Git / GitHub",
     category: "DevOps",
     desc: "Version Control CI/CD",
@@ -104,7 +120,7 @@ export function AboutSection() {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 relative z-10">
         {/* Profile Info Card */}
-        <div className="lg:col-span-5 bg-white dark:bg-[#141417] border-2 border-black dark:border-zinc-700 rounded-2xl p-6 sm:p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,0.2)] flex flex-col justify-between transition-all gap-6">
+        <div className="lg:col-span-5 bg-white dark:bg-[#141417] border-2 border-black dark:border-zinc-700 rounded-2xl p-6 sm:p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,0.2)] flex flex-col justify-start transition-all gap-6">
           <div className="flex items-center gap-5 pb-5 border-b border-zinc-200 dark:border-zinc-800">
             <div
               onClick={() => setIsColored(!isColored)}
@@ -131,12 +147,18 @@ export function AboutSection() {
             </div>
           </div>
 
-          <div className="space-y-4 text-zinc-800 dark:text-zinc-300 text-sm sm:text-[15px] leading-relaxed font-medium">
+          <div className="text-zinc-800 dark:text-zinc-300 text-sm sm:text-[15px] leading-relaxed font-medium">
             <p>
-              Hello! I am an Informatics Engineering graduate from Universitas Pasundan with a strong passion for full-stack web development. Backed by Junior Web Developer and Junior Cyber Security certifications, I ensure that the code I write delivers not only visually appealing interfaces but also secure architectures. I am ready to turn complex ideas into intuitive and functional web applications.
+              Hi, I’m Dandy. but You can call me Dan.
             </p>
             <p>
-
+              I’m a passionate Web Developer and a fresh graduate in Informatics Engineering from Universitas Pasundan. I enjoy turning ideas into modern, functional, and user-friendly digital experiences.
+            </p>
+            <p>
+              I have experience working with technologies such as Laravel, React, JavaScript, PHP, MySQL, and Tailwind CSS, with a strong interest in building web applications that are reliable, scalable, and easy to use.
+            </p>
+            <p>
+              I enjoy solving problems through code, exploring new technologies, and continuously improving my skills. I’m always eager to learn, take on new challenges, and turn ideas into meaningful digital solutions.
             </p>
           </div>
         </div>
@@ -148,10 +170,6 @@ export function AboutSection() {
               <div className="text-xs font-bold uppercase tracking-widest text-zinc-600 dark:text-zinc-400">
                 TECHNICAL CORE
               </div>
-              <span className="inline-flex items-center gap-1.5 text-[10px] font-extrabold uppercase tracking-wider bg-zinc-100 dark:bg-zinc-800 px-2.5 py-1 rounded-full border border-zinc-300 dark:border-zinc-700 text-zinc-800 dark:text-zinc-200">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                10 Core Stack
-              </span>
             </div>
 
             {/* Interactive Tech Stack Grid */}

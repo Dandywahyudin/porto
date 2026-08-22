@@ -26,6 +26,47 @@ export function NextjsIcon({ className = "w-5 h-5" }: { className?: string }) {
   );
 }
 
+export function LaravelIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="#FF2D20">
+      <path d="M21.2 5.62l-7.9-4.57a1.65 1.65 0 00-1.65 0L3.75 5.62A1.65 1.65 0 002.92 7.05v9.14a1.65 1.65 0 00.83 1.43l7.9 4.57a1.65 1.65 0 001.65 0l7.9-4.57a1.65 1.65 0 00.83-1.43V7.05a1.65 1.65 0 00-.83-1.43zM12 3.12l6.83 3.95-3.08 1.78L8.92 4.9 12 3.12zm-7.08 4.1l3.08-1.78 6.83 3.95-3.08 1.78-6.83-3.95zm-.84 9.17V8.56l6.84 3.95v7.83L4.08 16.39zm8.5 3.95v-7.83l3.08-1.78v7.83l-3.08 1.78zm7.34-3.95l-3.08 1.78V10.37l3.08-1.78v7.8z" />
+    </svg>
+  );
+}
+
+export function PHPIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none">
+      <rect width="24" height="15" x="0" y="4.5" rx="3.5" fill="#777BB4" />
+      <path
+        d="M5.8 7.5h2.2c1.2 0 1.9.6 1.9 1.6s-.7 1.6-1.9 1.6H6.7l-.5 2.8H4.8l1-6zm1.3 2.1h.7c.6 0 .9-.3.9-.6s-.3-.6-.9-.6h-.6l-.1 1.2zm6-2.1h1.4l-.5 2.6h1.9l.5-2.6h1.4l-1.1 6h-1.4l.5-2.5h-1.9l-.5 2.5h-1.4l1.1-6zm7 0h2.2c1.2 0 1.9.6 1.9 1.6s-.7 1.6-1.9 1.6h-1.3l-.5 2.8H19l1-6zm1.3 2.1h.7c.6 0 .9-.3.9-.6s-.3-.6-.9-.6h-.6l-.1 1.2z"
+        fill="#FFFFFF"
+      />
+    </svg>
+  );
+}
+
+export function GoIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="none">
+      <path
+        d="M1.5 11C1.5 8.8 3.1 7.2 5.5 7.2C7.5 7.2 9 8.4 9.5 10.2H7.4C7.1 9.4 6.4 8.9 5.5 8.9C4.1 8.9 3.2 9.9 3.2 11.4C3.2 13 4.1 14 5.5 14C6.6 14 7.3 13.3 7.5 12.4H5.5V10.9H9.7C9.7 11.2 9.7 11.5 9.7 11.9C9.7 14 8.1 15.7 5.5 15.7C2.8 15.7 1.5 13.7 1.5 11Z"
+        fill="#00ADD8"
+      />
+      <path
+        d="M11 11.4C11 9 12.8 7.2 15.3 7.2C17.8 7.2 19.6 9 19.6 11.4C19.6 13.9 17.8 15.7 15.3 15.7C12.8 15.7 11 13.9 11 11.4ZM17.8 11.4C17.8 9.9 16.7 8.9 15.3 8.9C13.9 8.9 12.8 9.9 12.8 11.4C12.8 13 13.9 14 15.3 14C16.7 14 17.8 13 17.8 11.4Z"
+        fill="#00ADD8"
+      />
+      <path
+        d="M20.5 12.5H23.5M19.5 10.5H22.5M21 14.5H24"
+        stroke="#00ADD8"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
 export function TypeScriptIcon({ className = "w-5 h-5" }: { className?: string }) {
   return (
     <svg viewBox="0 0 128 128" className={className}>
@@ -69,18 +110,6 @@ export function NodejsIcon({ className = "w-5 h-5" }: { className?: string }) {
         fill="#ffffff"
         opacity="0.9"
       />
-    </svg>
-  );
-}
-
-export function FigmaIcon({ className = "w-5 h-5" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 38 57" className={className} fill="none">
-      <path d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z" fill="#1ABCFE" />
-      <path d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z" fill="#0ACF83" />
-      <path d="M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z" fill="#FF7262" />
-      <path d="M0 9.5C0 14.7467 4.25329 19 9.5 19H19V0H9.5C4.25329 0 0 4.25329 0 9.5Z" fill="#F24E1E" />
-      <path d="M0 28.5C0 33.7467 4.25329 38 9.5 38H19V19H9.5C4.25329 19 0 23.2533 0 28.5Z" fill="#A259FF" />
     </svg>
   );
 }
