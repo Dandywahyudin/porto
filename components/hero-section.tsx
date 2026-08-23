@@ -156,7 +156,7 @@ export function HeroSection({ onNavigate }: HeroSectionProps) {
             title="Klik / Tap untuk mengubah warna"
           >
             <Image
-              src="/image/gambarhero.webp"
+              src="/image/copy.webp"
               alt="Dandy Wahyudin"
               fill
               priority
