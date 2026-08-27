@@ -434,10 +434,6 @@ export function ContactSection() {
               </div>
             )}
           </div>
-
-          <div className="text-center text-[11px] font-mono text-zinc-500 dark:text-zinc-400 mt-1">
-            <span>Naruto Uzumaki&apos;s Favorite Ramen Stand • 3D Interactive WebGL</span>
-          </div>
         </div>
 
         {/* ========================================================================= */}
@@ -459,37 +455,28 @@ export function ContactSection() {
           {/* Contact Details Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 bg-white dark:bg-[#141417] border-2 border-black dark:border-zinc-700 p-6 rounded-2xl shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,0.15)]">
             <InfoItem
-              label="Direct Email"
-              href="mailto:dandywahyudin19@gmail.com"
-              value="dandywahyudin@gmail.com"
+              label="Location"
+              value="Bandung City, Indonesia (Konohagakure)"
             />
             <InfoItem
-              label="Instagram"
-              href="https://instagram.com/dandywahyudinn"
-              value="@dandywahyudinn"
-              badge="Personal"
+              label="Direct Email"
+              href="mailto:dandywahyudin19@gmail.com"
+              value="dandywahyudin19@gmail.com"
             />
             <InfoItem
               label="LinkedIn"
               href="https://linkedin.com/in/dandywahyudin"
               value="in/dandywahyudin"
-              badge="Professional"
             />
             <InfoItem
-              label="Location"
-              value="Bandung City, ID (Konohagakure)"
-              badge="Remote / On-site"
+              label="Instagram"
+              href="https://instagram.com/dandywahyudinn"
+              value="@dandywahyudinn"
             />
           </div>
 
           {/* Action Buttons */}
           <div className="flex flex-wrap gap-4 pt-2">
-            <a
-              href="mailto:dandywahyudin19@gmail.com"
-              className="bg-black text-white hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200 font-bold text-xs py-3.5 px-6 rounded-full flex items-center justify-center gap-2 transition-all uppercase tracking-wider shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.4)] active:translate-x-px active:translate-y-px cursor-pointer"
-            >
-              <Mail className="w-4 h-4" /> Order a Bowl of Code (Send Email)
-            </a>
             <a
               href="https://github.com/dandywahyudin"
               target="_blank"
