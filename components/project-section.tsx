@@ -81,8 +81,8 @@ const projectsData: ProjectItem[] = [
       "Configurable Multi-Tier Incident Alerting Matrix",
     ],
     tags: ["Vue 3", "TypeScript", "D3.js", "WebSockets", "Tailwind CSS"],
-    banner: "/projects/dashboard-1.jpg",
-    images: ["/projects/dashboard-1.jpg", "/projects/dashboard-2.jpg"],
+    banner: "/projects/gateforestrip.webp",
+    images: ["/projects/gateforestrip.webp"],
   },
   {
     id: "architexture-zine",
