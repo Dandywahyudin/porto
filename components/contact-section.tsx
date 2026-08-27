@@ -491,7 +491,7 @@ export function ContactSection() {
 
       {/* Footer */}
       <footer className="border-t border-black dark:border-zinc-800 pt-6 mt-20 flex flex-col sm:flex-row justify-between items-center text-xs text-zinc-600 dark:text-zinc-400 font-medium gap-4 transition-colors">
-        <div>© 2026 DW. — by Dandy Wahyudin. (Konohagakure Edition)</div>
+        <div>© 2026 DW. — by Dandy Wahyudin.</div>
         <div className="flex items-center gap-6 text-xs text-zinc-800 dark:text-zinc-300 font-bold">
           <a href="https://linkedin.com/in/dandywahyudin" target="_blank" rel="noreferrer" className="hover:text-black dark:hover:text-white hover:underline">
             LinkedIn
