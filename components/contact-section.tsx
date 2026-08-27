@@ -319,9 +319,7 @@ export function ContactSection() {
 
       {/* Main Content: 3D Model on Left & Ramen Themed Contact Details on Right */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
-        {/* ========================================================================= */}
-        {/* LEFT COLUMN: PURE FRAMELESS 3D ICHIRAKU RAMEN                             */}
-        {/* ========================================================================= */}
+
         <div className="lg:col-span-6 relative flex flex-col items-center justify-center">
           <div
             ref={containerRef}
@@ -476,16 +474,7 @@ export function ContactSection() {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-wrap gap-4 pt-2">
-            <a
-              href="https://github.com/dandywahyudin"
-              target="_blank"
-              rel="noreferrer"
-              className="border-2 border-black dark:border-zinc-700 bg-white dark:bg-zinc-900 text-black dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 font-bold text-xs py-3.5 px-6 rounded-full flex items-center justify-center gap-2 transition-all uppercase tracking-wider shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.2)] active:translate-x-px active:translate-y-px cursor-pointer"
-            >
-              <Send className="w-4 h-4" /> Explore GitHub
-            </a>
-          </div>
+
         </div>
       </div>
 
