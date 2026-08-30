@@ -1,6 +1,5 @@
-import { useState } from "react";
-import Image from "next/image";
 import { Particles } from "@/components/ui/particles";
+import { CardStack } from "@/components/ui/card-stack";
 import {
   ReactIcon,
   NextjsIcon,
@@ -15,6 +14,37 @@ import {
   GitIcon,
   HTMLIcon,
 } from "@/components/icons/tech-icons";
+
+const photoCards = [
+  {
+    id: "hiking",
+    title: "Mountain Hiking",
+    category: "Adventure",
+    image: "/image/aboutme3.webp",
+    alt: "Mountain Hiking",
+  },
+  {
+    id: "nature",
+    title: "Outdoor Exploration",
+    category: "Nature",
+    image: "/image/aboume2.webp",
+    alt: "Outdoor Exploration",
+  },
+  {
+    id: "lifestyle",
+    title: "Lifestyle & Relax",
+    category: "Life",
+    image: "/image/copy.webp",
+    alt: "Lifestyle & Relax",
+  },
+  {
+    id: "developer",
+    title: "Software Engineering",
+    category: "Coding",
+    image: "/image/aboutme.webp",
+    alt: "Software Engineering",
+  },
+];
 
 const techStack = [
   {
@@ -104,8 +134,6 @@ const techStack = [
 ];
 
 export function AboutSection() {
-  const [isColored, setIsColored] = useState(false);
-
   return (
     <section id="about" className="py-20 border-b border-zinc-200/60 dark:border-zinc-800 transition-colors relative">
       {/* Particles Ambient Background */}
@@ -119,24 +147,14 @@ export function AboutSection() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 relative z-10">
-        {/* Profile Info Card */}
+        {/* Profile Info Card with Stacked Cards Avatar */}
         <div className="lg:col-span-5 bg-white dark:bg-[#141417] border-2 border-black dark:border-zinc-700 rounded-2xl p-6 sm:p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,0.2)] flex flex-col justify-start transition-all gap-6">
           <div className="flex items-center gap-5 pb-5 border-b border-zinc-200 dark:border-zinc-800">
-            <div
-              onClick={() => setIsColored(!isColored)}
-              className="relative w-20 h-20 sm:w-24 sm:h-24 shrink-0 rounded-xl border-2 border-black dark:border-zinc-500 overflow-hidden bg-zinc-200 dark:bg-zinc-800 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] dark:shadow-[3px_3px_0px_0px_rgba(255,255,255,0.3)] group cursor-pointer active:scale-95 transition-transform"
-              title="Klik"
-            >
-              <Image
-                src="/image/aboutme.webp"
-                alt="Dandy Wahyudin"
-                fill
-                className={`object-cover transition-all duration-500 ${isColored
-                  ? "grayscale-0"
-                  : "grayscale group-hover:grayscale-0"
-                  }`}
-              />
+            {/* Interactive Fanned Photo Stack on the small image */}
+            <div className="shrink-0 p-1">
+              <CardStack items={photoCards} size="sm" />
             </div>
+
             <div>
               <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-black dark:text-white">
                 Dandy Wahyudin
@@ -147,7 +165,7 @@ export function AboutSection() {
             </div>
           </div>
 
-          <div className="text-zinc-800 dark:text-zinc-300 text-sm sm:text-[15px] leading-relaxed font-medium">
+          <div className="text-zinc-800 dark:text-zinc-300 text-sm sm:text-[15px] leading-relaxed font-medium space-y-3">
             <p>
               Hi, I’m Dandy. but You can call me Dan.
             </p>
@@ -163,7 +181,7 @@ export function AboutSection() {
           </div>
         </div>
 
-        {/* Redesigned Technical Core with Vector Tech Icons */}
+        {/* Technical Core with Vector Tech Icons */}
         <div className="lg:col-span-7 bg-white dark:bg-[#141417] border-2 border-black dark:border-zinc-700 rounded-2xl p-6 sm:p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,0.2)] flex flex-col justify-between transition-all">
           <div>
             <div className="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-700 pb-3 mb-6">
