@@ -17,6 +17,13 @@ import {
 
 const photoCards = [
   {
+    id: "developer",
+    title: "Software Engineering",
+    category: "Coding",
+    image: "/image/aboutme.webp",
+    alt: "Software Engineering",
+  },
+  {
     id: "hiking",
     title: "Mountain Hiking",
     category: "Adventure",
@@ -37,13 +44,7 @@ const photoCards = [
     image: "/image/copy.webp",
     alt: "Lifestyle & Relax",
   },
-  {
-    id: "developer",
-    title: "Software Engineering",
-    category: "Coding",
-    image: "/image/aboutme.webp",
-    alt: "Software Engineering",
-  },
+
 ];
 
 const techStack = [

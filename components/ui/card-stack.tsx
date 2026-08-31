@@ -13,6 +13,13 @@ export type CardItem = {
 
 const DEFAULT_CARDS: CardItem[] = [
   {
+    id: "developer",
+    title: "Dandy Wahyudin",
+    category: "Developer",
+    image: "/image/aboutme.webp",
+    alt: "Dandy Wahyudin",
+  },
+  {
     id: "hiking",
     title: "Mountain Adventure",
     category: "Travel",
@@ -33,13 +40,7 @@ const DEFAULT_CARDS: CardItem[] = [
     image: "/image/copy.webp",
     alt: "Casual & Chill",
   },
-  {
-    id: "developer",
-    title: "Dandy Wahyudin",
-    category: "Developer",
-    image: "/image/aboutme.webp",
-    alt: "Dandy Wahyudin",
-  },
+
 ];
 
 // Presets for fanned stack appearance matching the reference snippet:
@@ -214,9 +215,8 @@ export function CardStack({
           return (
             <div
               key={card.id}
-              className={`card-rotate absolute inset-0 ${roundedClasses} ${
-                isTop ? "cursor-grab active:cursor-grabbing" : "pointer-events-none"
-              }`}
+              className={`card-rotate absolute inset-0 ${roundedClasses} ${isTop ? "cursor-grab active:cursor-grabbing" : "pointer-events-none"
+                }`}
               draggable={false}
               tabIndex={isTop ? 0 : -1}
               onPointerDown={isTop ? handlePointerDown : undefined}
